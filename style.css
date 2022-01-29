@@ -1,0 +1,60 @@
+* {
+    padding: 2px;
+    margin: 2px;
+    border: dotted 1px grey;
+    box-sizing: border-box;
+}
+
+.text-output {
+    width: 400px;
+    height: 200px;
+}
+
+.tuto-vue3 {
+    border: solid 2px red;
+}
+
+.training-vue3 {
+    border: solid 2px darkblue;
+    border-radius: 10px;
+}
+
+.container-note {
+    background-color: aquamarine;
+}
+
+.list-1 {
+    background-color: fuchsia;
+}
+
+.nav-bar {
+    border-radius: 10px;
+    border: solid 5px darkorange;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+}
+.note-item {
+    display: flex;
+}
+.home {
+    border-radius: 10px;
+    border: solid 5px greenyellow;
+    padding: 10px;
+    margin: 10px;
+    height: 200px;
+}
+.works {
+    border-radius: 10px;
+    border: solid 5px rgb(88, 56, 93);
+    padding: 10px;
+    margin: 10px;
+    height: 200px;
+}
+
+.not-found {
+    border: solid 10px red;
+    padding: 10px;
+    margin: 10px;
+    height: 200px;
+}

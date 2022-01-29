@@ -1,0 +1,104 @@
+<!-- https://www.youtube.com/watch?v=D3oivlcoEvw&list=PL04hTNILO2hktvv9TZjLI6Prh3ziUo4QE&index=11 -->
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- <link rel="stylesheet" href="bootstrap.css" /> -->
+
+        <link rel="stylesheet" href="style.css" />
+        <title>Training - Vue js</title>
+    </head>
+    <body>
+        <div id="app">
+            <div class="tuto-vue3">
+                <div>
+                    <h1>The check list</h1>
+
+                    <input type="text" v-model="userTxt" />
+                    <a href="#" v-on:click="ajouterTodo" v-if="userTxt != ''">Ajouter</a>
+                    <span> | {{ userTxt }}</span><br />
+                    <p class="list-1" v-bind:title="userTxt" v-for="todo in todos" v-on:click="inverser">{{ todo }}</p>
+                    <br />
+                </div>
+                <div>
+                    <h1>The check list - component</h1>
+                    <!-- // Composant -->
+
+                    <!-- Passage de données d'un composant vers l'instance principale de vue -->
+                    <ajout v-on:e-internal-ajouter="ajouterTodo2"></ajout>
+
+                    <!-- Passage de données de l'instance principale de vue vers un composant -->
+                    <note v-for="todo in todos" v-bind:content="todo" v-on:click="inverser"></note>
+
+                    <!-- 
+                        <p v-bind:title="userTxt" v-for="fruit in fruits" :key="fruit.id">
+                            {{ fruit.name }}
+                        </p> 
+                        -->
+                </div>
+            </div>
+
+            <router-view></router-view>
+        </div>
+
+        <!-- Passage de données de l'instance principale de vue vers un composant -->
+        <script type="text/x-template" id="note">
+            <div class="note-item">
+                <p>Contained Item :</p>
+                <p > {{ content }}</p>
+            </div>
+        </script>
+
+        <!-- Passage de données d'un composant vers l'instance principale de vue -->
+        <!-- Remonter les données du composant vers l'instance principal de Vue... -->
+        <script type="text/x-template" id="ajout">
+            <div class="ajout-item">
+                <h1>Input item</h1>
+                <input type="text" v-model="internalUserTxt" />
+                <a href="#" v-on:click="internalAjouterTodo" v-if="internalUserTxt != ''">Ajouter</a>
+                <span> | {{ internalUserTxt }}</span><br />
+            </div>
+        </script>
+
+        <script type="text/x-template" id="nav-bar">
+            <div class="nav-bar">
+                <router-link to="/">Home</router-link>
+                <router-link to="/works">Works</router-link>
+            </div>
+        </script>
+
+        <script type="text/x-template" id="home">
+            <div class="training-vue3">
+                <nav-bar></nav-bar>
+                <div class="home">
+                    <h2>home</h2>
+                </div>
+            </div>
+        </script>
+        <script type="text/x-template" id="works">
+            <div class="training-vue3">
+                <nav-bar></nav-bar>
+                <div class="works">
+                    <h2>works</h2>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/x-template" id="not-found">
+            <div class="training-vue3">
+                <nav-bar></nav-bar>
+                <div class="not-found">
+                    <h2>Error 404 : Page not found !</h2>
+                </div>
+            </div>
+        </script>
+
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="https://unpkg.com/vue-router@4.0.5/dist/vue-router.global.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
